@@ -27,7 +27,23 @@ public class UserMapperTest extends TestCase {
     /**
      * Rigourous Test :-)
      */
-    public void testApp() {
+    public void testPopulateUserFromUserCommand() {
+        // given
+        UserCommand ash = UserCommand.builder().firstName("Ash").lastName("Barrett").workEmail("ash@techleisure.com")
+                .build();
+
+        // when
+        User user = UserMapper.INSTANCE.userCommandToUser(ash);
+
+        // then
+        assertNotNull(user);
+        assertEquals(user.getFirstName(), "Ash");
+        assertEquals(user.getLastName(), "Barrett");
+        assertEquals(user.getEmail(), "ash@techleisure.com");
+
+    }
+
+    public void testPopulateUserCommandFromUser() {
         // given
         User ash = User.builder().firstName("Ash").lastName("Barrett").email("ash@techleisure.com").build();
 
