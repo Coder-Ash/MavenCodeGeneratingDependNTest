@@ -1,32 +1,15 @@
 package guru.springframework.mapstruct;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
  */
-public class UserMapperTest extends TestCase {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public UserMapperTest(String testName) {
-        super(testName);
-    }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite() {
-        return new TestSuite(UserMapperTest.class);
-    }
+public class UserMapperTest {
 
-    /**
-     * Rigourous Test :-)
-     */
+    @Test
     public void testPopulateUserFromUserCommand() {
         // given
         UserCommand ash = UserCommand.builder().firstName("Ash").lastName("Barrett").workEmail("ash@techleisure.com")
@@ -43,6 +26,7 @@ public class UserMapperTest extends TestCase {
 
     }
 
+    @Test
     public void testPopulateUserCommandFromUser() {
         // given
         User ash = User.builder().firstName("Ash").lastName("Barrett").email("ash@techleisure.com").build();
