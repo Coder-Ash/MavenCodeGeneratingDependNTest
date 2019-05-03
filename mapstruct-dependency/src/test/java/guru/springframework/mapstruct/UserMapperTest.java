@@ -7,6 +7,15 @@ import static org.junit.Assert.*;
  * Unit test for simple App.
  */
 
+public class UserMapperTest {
+
+    @Test
+    public void testPopulateUserFromUserCommand() {
+        // given
+        UserCommand ash = UserCommand.builder().firstName("Ash").lastName("Barrett").workEmail("ash@techleisure.com")
+                .build();
+
+        // when
         User user = UserMapper.INSTANCE.userCommandToUser(ash);
 
         // then
